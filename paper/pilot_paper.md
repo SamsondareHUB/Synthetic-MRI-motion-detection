@@ -172,6 +172,49 @@ MRI artifact domains. The results highlight the risk of simulator-specific
 overestimation and support the use of diverse synthetic generators when
 developing low-resource MRI quality-control models.
 
+## Data Availability
+
+The IXI brain MRI dataset used in this study is publicly available from the
+IXI project subject to its data-access and licensing terms. Raw MRI volumes,
+derived slice arrays, and trained model checkpoints are not redistributed in
+this repository. The code, preprocessing workflow, experimental configuration,
+and aggregate results are available at: [https://github.com/SamsondareHUB/Synthetic-MRI-motion-detection].
+
+## Code Availability
+
+All code required to reproduce the reported preprocessing, synthetic-artifact
+generation, training, and evaluation workflows is available at:
+[https://github.com/SamsondareHUB/Synthetic-MRI-motion-detection]. The repository excludes raw MRI data and
+derived image arrays.
+
+## Ethics Statement
+
+This study used de-identified, publicly available brain MRI data. No new human
+participants were recruited, no interventions were performed, and no private
+patient information was accessed. The study followed the applicable terms of
+use for the source dataset. Institutional ethics approval was not sought for
+this secondary analysis of publicly available de-identified data; authors should
+confirm this statement against their institution's requirements before public
+submission.
+
+## Funding
+
+No external funding was received for this work.
+
+## Competing Interests
+
+The author declares no competing interests.
+
+## Author Contributions
+
+[Samson Oluwadare]: Conceptualization, methodology, software, formal analysis,
+visualization, writing—original draft, and writing—review and editing.
+
+ ## Disclosure
+
+The author reviewed, verified, and takes full responsibility for all methods,
+code, analyses, results, interpretations, and manuscript content.
+
 ## References
 
 1. Pérez-García F, Sparks R, Ourselin S. TorchIO: A Python library for
