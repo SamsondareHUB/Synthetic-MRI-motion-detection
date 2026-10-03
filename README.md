@@ -1,58 +1,30 @@
-# Synthetic-MRI-motion-detection
-Detecting synthetic motion artifacts in brain MRI using transfer learning.
-Add project overview and research plan
+## Baseline Results
 
-# Synthetic Motion-Artifact Detection in Brain MRI Using Transfer Learning
+A pretrained ResNet-18 model was fine-tuned to classify clean and synthetically
+motion-corrupted axial T1-weighted brain-MRI slices.
 
-This project investigates whether transfer learning can improve detection of
-motion artifacts in brain MRI using synthetically generated training data.
+| Metric | Result |
+|---|---:|
+| Best validation accuracy | 98.23% |
+| Test accuracy | 97.00% |
+| Test AUROC | 0.9904 |
+| Clean-slice recall | 100% |
+| Synthetic-artifact recall | 94% |
+| Test samples | 566 |
 
-## Objective
+### Experimental setup
 
-Train and evaluate CNN-based classifiers that distinguish clean brain-MRI slices
-from synthetically motion-corrupted slices.
+- Dataset: 10 IXI T1-weighted brain MRI volumes
+- Central axial slices: 1,455
+- Split: subject-wise, with 7 training subjects, 1 validation subject, and 2 test subjects
+- Model: ImageNet-pretrained ResNet-18
+- Classes: clean vs. synthetically motion-corrupted MRI slices
 
-## Dataset
+### Important limitation
 
-- IXI T1-weighted brain MRI dataset
-- Source: https://brain-development.org/ixi-dataset/
-- License: CC BY-SA 3.0
-
-## Method
-
-1. Download and preprocess T1-weighted brain MRI volumes.
-2. Extract axial slices.
-3. Generate synthetic motion artifacts using image-space and k-space simulations.
-4. Train a baseline CNN from scratch.
-5. Fine-tune a pretrained ResNet-18 using transfer learning.
-6. Evaluate both models using subject-wise train/validation/test splits.
-
-## Metrics
-
-- Accuracy
-- Balanced accuracy
-- Precision
-- Recall
-- Specificity
-- F1 score
-- AUROC
-- AUPRC
-
-## Repository structure
-
-```text
-notebooks/       Colab notebooks for exploration, simulation, and analysis
-src/             Reusable Python modules
-outputs/         Figures, metrics, and model artifacts excluded from Git
-data/            MRI data excluded from Git; stored in Google Drive
-```
-
-## Status
-
-- [x] Project initialization
-- [ ] Data download and inspection
-- [ ] Preprocessing pipeline
-- [ ] Synthetic motion-artifact generation
-- [ ] Baseline CNN training
-- [ ] Transfer-learning experiments
-- [ ] Final evaluation and report
+The synthetic artifact in this baseline was produced with a 2D transformed-image
+blending procedure. Therefore, these results demonstrate performance on the
+specific synthetic corruption used in this experiment and should not be treated
+as clinical performance on real patient-motion artifacts. Future work will use
+3D k-space-based motion simulation and evaluate against real motion-corrupted
+brain MRI data.
